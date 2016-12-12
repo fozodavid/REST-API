@@ -1,0 +1,6 @@
+Django==1.10.4
+djangorestframework==3.5.3
+icalendar==3.11
+python-dateutil==2.6.0
+pytz==2016.10
+six==1.10.0
