@@ -3,7 +3,7 @@ from .models import Event
 
 
 class EventSerializer(serializers.Serializer):
-    id = serializers.IntegerField(required=False, allow_blank=True)
+    id = serializers.IntegerField(required=False)
     start = serializers.DateTimeField(required=True)
     end = serializers.DateTimeField(required=True)
     label = serializers.CharField(
