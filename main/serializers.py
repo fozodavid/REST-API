@@ -14,14 +14,14 @@ class EventSerializer(serializers.Serializer):
     def create(self, validated_data):
         return Event.objects.create(**validated_data)
 
-    def update(self, instance, validated_data):
-        instance.id = validated_data.get('id', instance.id)
-        instance.start = validated_data.get('start', instance.start)
-        instance.end = validated_data.get('end', instance.end)
-        instance.label = validated_data.get('label', instance.label)
-        instance.category = validated_data.get('category', instance.category)
-        instance.save()
-        return instance
+    # def update(self, instance, validated_data):
+    #     instance.id = validated_data.get('id', instance.id)
+    #     instance.start = validated_data.get('start', instance.start)
+    #     instance.end = validated_data.get('end', instance.end)
+    #     instance.label = validated_data.get('label', instance.label)
+    #     instance.category = validated_data.get('category', instance.category)
+    #     instance.save()
+    #     return instance
 
     class Meta:
         model = Event
