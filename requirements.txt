@@ -3,4 +3,5 @@ djangorestframework==3.5.3
 icalendar==3.11
 python-dateutil==2.6.0
 pytz==2016.10
+requests==2.12.3
 six==1.10.0
