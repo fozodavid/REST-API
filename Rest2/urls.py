@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-
+from main.views import download_event
 
 urlpatterns = [
     url(r'^api/', include('main.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^download/(?P<id>\d+)/$', download_event),
 ]
