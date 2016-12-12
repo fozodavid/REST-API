@@ -1,4 +1,4 @@
-# Exercice 2 (approx. 1h30)
+# BuzzHire Exercise 2
 
 The purpose of this exercice is to write an API to record and deliver events.
 
@@ -12,6 +12,38 @@ An event is an object with a start and end times, plus additional informations :
         category: "blue"
     }
 ```
+## Tests
+
+Run the tests the usual way
+
+```
+python3 manage.py tests
+```
+
+## Features
+
+This Django module has the following URLs.
+
+```
+    GET /api/events/
+```
+Returns the list of events stored in the system.
+
+```
+    GET /api/events/:id/
+```
+Returns a particular event from the system given its ID
+
+```
+    POST /api/events/
+```
+Allows to create a new event, by specifying its start and end datetimes, 
+plus any other information.
+
+```
+    /download/:id/
+```
+Downloads the particular event in ics format.
 
 ## Recommendations
 
@@ -26,21 +58,6 @@ You can return your code directly by email, hosted on a repository,
 or deploy it using Heroku or any similar platform.Tasks
 
 ## 1. API basics
-
-Write an API providing the following endpoints :
-```
-    GET /api/events/
-```
-Returns the list of events stored in the system.
-```
-    GET /api/events/:id/
-```
-Returns a particular event from the system given its ID
-```
-    POST /api/events/
-```
-Allows to create a new event, by specifying its start and end datetimes, 
-plus any other information.
 
 You will have to write the code to handle storage of the objects in the
 database of your choice.
