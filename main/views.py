@@ -1,10 +1,10 @@
-from .models import Event, Category
+from .models import Event
 from .serializers import EventSerializer
 from django.http import Http404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-
+from datetime import datetime
 
 class EventList(APIView):
     """
@@ -16,11 +16,14 @@ class EventList(APIView):
         return Response(serializer.data)
 
     def post(self, request, format=None):
+        request.data['start'] = datetime.strptime(request.data['start'],"%Y-%d-%mT%XZ")
+        request.data['end'] = datetime.strptime(request.data['end'],"%Y-%d-%mT%XZ")
         serializer = EventSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 
 class EventDetail(APIView):
