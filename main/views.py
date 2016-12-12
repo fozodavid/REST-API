@@ -36,7 +36,7 @@ def download_event(request, id):
 
 class EventList(APIView):
     """
-    Lists all events, or create a new snippet.
+    Lists all events, or create a new one.
     """
 
     def get(self, request, format=None):
@@ -46,8 +46,9 @@ class EventList(APIView):
 
     def post(self, request, format=None):
         pattern = "%Y-%m-%dT%H:%M:%SZ"
-        request.data['start'] = strptime(request.data['start'], pattern)
-        request.data['end'] = strptime(request.data['end'], pattern)
+        request.data['start'] = datetime.strptime(
+            request.data['start'], pattern)
+        request.data['end'] = datetime.strptime(request.data['end'], pattern)
         serializer = EventSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
@@ -57,7 +58,7 @@ class EventList(APIView):
 
 class EventDetail(APIView):
     """
-    Retrieve, update or delete a snippet instance.
+    View individual event.
     """
 
     def get_object(self, pk):
