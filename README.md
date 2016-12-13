@@ -12,6 +12,20 @@ An event is an object with a start and end times, plus additional informations :
         category: "blue"
     }
 ```
+## Installation
+
+The installation is like any Django project. Navigate into your working directory.
+```
+git clone https://github.com/fozodavid/REST-API
+mdkir virtualenv
+virtualenv --python=python3 ./virtualenv/
+source virtualenv/bin/activate
+cd REST-API
+pip install -r requirements.txt
+python3 manage.py migrate
+python3 manage.py runserver
+```
+
 ## Tests
 
 Run the tests the usual way
